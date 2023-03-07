@@ -9,20 +9,19 @@ sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sales_project.settings")
 django.setup()
 
-# Import models from sales_rest, here.
+
 from sales_rest.models import AutomobileVO
 
 
 def get_automobile():
     response = requests.get("http://inventory-api:8000/api/automobiles/")
-    print("response poller line 17: -----> ", response)
     content = json.loads(response.content)
-    print("content poller line 19: -----> ", content)
-    for automobile in content["automobiles"]:
+    for automobile in content["autos"]:
         AutomobileVO.objects.update_or_create(
-            import_href=automobile["import_href"],
-            vin=automobile["vin"],
-            sold=automobile["sold"]
+            import_href=automobile["href"],
+            defaults={
+            "vin":automobile["vin"],
+            }
         )
 
 def poll():
@@ -33,7 +32,7 @@ def poll():
             pass
         except Exception as e:
             print(e, file=sys.stderr)
-        time.sleep(60)
+        time.sleep(5)
 
 
 if __name__ == "__main__":
