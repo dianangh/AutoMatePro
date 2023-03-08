@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AutomobileVO',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('vin', models.CharField(max_length=17, unique=True)),
                 ('vip', models.BooleanField(default=False)),
                 ('href', models.CharField(max_length=200)),
@@ -26,7 +27,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Technician',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('tech_name', models.CharField(max_length=200)),
                 ('employee_number', models.PositiveBigIntegerField()),
             ],
@@ -34,12 +36,16 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Service',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('vin', models.CharField(max_length=17)),
                 ('name', models.CharField(max_length=200)),
                 ('appointment_date', models.DateTimeField(null=True)),
                 ('reason', models.CharField(max_length=200)),
-                ('technician', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='service', to='service_rest.technician')),
+                ('technician',
+                 models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                   related_name='service',
+                                   to='service_rest.technician')),
             ],
         ),
     ]

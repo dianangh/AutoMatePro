@@ -1,42 +1,15 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
-from .models import AutomobileVO, Service, Technician
+from .models import Service, Technician
 from django.http import JsonResponse
 from common.json import ModelEncoder
 import json
 
-# Create your views here.
 
-class AutomobileVOEncoder(ModelEncoder):
-    model = AutomobileVO
-    properties = [
-        "vin"
-    ]
-
-
-
-class TechnicianListEncoder(ModelEncoder):
-    model = Technician
-    properties = [
-        "technician_name",
-        "employee_number",
-        "id"
-    ]
-
-
-
-class ServiceListEncoder(ModelEncoder):
-    model = Service
-    properties = [
-        "id",
-        "vin",
-        "name",
-        "appointment_date",
-        "reason",
-        "completed",
-        "technician",
-    ]
-    encoders = {"technician": TechnicianListEncoder()}
+from .encoders import (
+    ServiceListEncoder,
+    TechnicianListEncoder,
+)
 
 
 @require_http_methods(["GET", "POST"])
@@ -45,7 +18,7 @@ def list_tech(request):
         technicians = Technician.objects.all()
         return JsonResponse(
             {"technicians": technicians},
-            encoder= TechnicianListEncoder,
+            encoder=TechnicianListEncoder,
             safe=False
         )
     else:
@@ -61,8 +34,10 @@ def list_tech(request):
         except Technician.DoesNotExist:
             return JsonResponse(
                 {"message": "Does not exist"},
-                status = 400
+                status=400
             )
+
+
 @require_http_methods(["GET", "DELETE"])
 def show_tech(request, id):
     if request.method == "GET":
@@ -77,7 +52,7 @@ def show_tech(request, id):
             count, _ = Technician.objects.filter(id=id).delete()
             return JsonResponse(
                 {"deleted": count > 0}
-        )
+            )
         except Technician.DoesNotExist:
             return JsonResponse(
                 {"deleted": "Does not exist"}
@@ -90,13 +65,13 @@ def list_service(request):
         services = Service.objects.all()
         return JsonResponse(
             {"services": services},
-            encoder= ServiceListEncoder,
+            encoder=ServiceListEncoder,
             safe=False
         )
     else:
         content = json.loads(request.body)
         try:
-            technician = Technician.objects.get(id = content["technician"])
+            technician = Technician.objects.get(id=content["technician"])
             content["technician"] = technician
         except Technician.DoesNotExist:
             return JsonResponse(
@@ -108,7 +83,7 @@ def list_service(request):
             appointment,
             encoder=ServiceListEncoder,
             safe=False
-            )
+        )
 
 
 @require_http_methods(["GET", "PUT", "DELETE"])
@@ -137,7 +112,7 @@ def detail_service(request, id):
             )
         except Service.DoesNotExist:
             return JsonResponse(
-                {"message":"Does not exist"}
+                {"message": "Does not exist"}
             )
 
 

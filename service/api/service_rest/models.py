@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class Technician(models.Model):
     technician_name = models.CharField(max_length=200)
     employee_number = models.PositiveSmallIntegerField()
@@ -18,6 +19,7 @@ class Service(models.Model):
         related_name="service",
         on_delete=models.CASCADE
     )
+
 
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=17, unique=True)
