@@ -81,7 +81,7 @@ function SalesForm() {
             <div className="row">
                 <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
-                    <h1>Record a new sale</h1>
+                    <h1 className="text-center">Record a new sale</h1>
                     <form onSubmit={handleSubmit} id="create-location-form">
                     <div className="form-floating mb-3">
                         <select

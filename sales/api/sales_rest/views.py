@@ -1,57 +1,9 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
-import json
-
-from common.json import ModelEncoder
 from .models import AutomobileVO, Customer, SalesPerson, SaleRecord
-
-
-class SalesPersonEncoder(ModelEncoder):
-    model = SalesPerson
-    properties = [
-        "name",
-        "employee_number",
-        "id",
-    ]
-
-
-class CustomerEncoder(ModelEncoder):
-    model = Customer
-    properties = [
-        "name",
-        "address",
-        "phone_number",
-        "id",
-    ]
-
-
-class AutomobileVOEncoder(ModelEncoder):
-    model = AutomobileVO
-    properties = [
-        "vin",
-        # "color",
-        # "year",
-        "sold",
-        # "id",
-    ]
-
-
-class SaleRecordEncoder(ModelEncoder):
-    model = SaleRecord
-    properties = [
-        "sales_person",
-        "customer",
-        "automobile",
-        "price",
-        "id",
-    ]
-    encoders = {
-        "automobile": AutomobileVOEncoder(),
-        "sales_person": SalesPersonEncoder(),
-        "customer": CustomerEncoder(),
-    }
-
+from .encoders import SalesPersonEncoder, CustomerEncoder, AutomobileVOEncoder, SaleRecordEncoder
+import json
 
 @require_http_methods(["GET", "POST"])
 def api_list_salesperson(request):
