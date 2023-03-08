@@ -1,6 +1,7 @@
 from .models import AutomobileVO, Customer, SalesPerson, SaleRecord
 from common.json import ModelEncoder
 
+
 class SalesPersonEncoder(ModelEncoder):
     model = SalesPerson
     properties = [
@@ -8,6 +9,7 @@ class SalesPersonEncoder(ModelEncoder):
         "employee_number",
         "id",
     ]
+
 
 class CustomerEncoder(ModelEncoder):
     model = Customer
@@ -18,12 +20,14 @@ class CustomerEncoder(ModelEncoder):
         "id",
     ]
 
+
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = [
         "vin",
         "sold",
     ]
+
 
 class SaleRecordEncoder(ModelEncoder):
     model = SaleRecord

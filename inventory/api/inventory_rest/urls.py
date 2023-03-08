@@ -40,5 +40,5 @@ urlpatterns = [
         api_vehicle_model,
         name="api_vehicle_model",
     ),
-    
+
 ]

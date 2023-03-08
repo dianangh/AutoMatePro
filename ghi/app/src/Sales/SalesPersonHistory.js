@@ -9,7 +9,6 @@ function SalesPersonHistory() {
     // const [showModal, setShowModal] = useState(false);
 
     const handleDelete = async (event) => {
-        console.log("The item will be deleted", typeof(event.target.id));
         const url = `http://localhost:8090/api/salesrecords/${event.target.id}`;
 
         const fetchConfig = {
@@ -31,15 +30,11 @@ function SalesPersonHistory() {
             const data = await response.json();
             console.log(data.sales_person)
             const employees = data.sales_person.map((employee) => {
-
                 return {
                     employeeName: employee.name,
                     employeeId: employee.employee_number
                 };
-
             });
-            console.log('employees', employees);
-            // setSalesPerson(data.sales_person)
             setSalesPerson(employees)
         }
     }
@@ -58,7 +53,6 @@ function SalesPersonHistory() {
     }, []);
 
     const handleFilterChange = (event) => {
-        console.log(event.target.value)
         const value = event.target.value
         setFilterSalesEmployeeId(value);
     };

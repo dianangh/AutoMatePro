@@ -1,80 +1,82 @@
 import React, { useState, useEffect } from "react";
 
 function SalesForm() {
-    const [automobile, setAutomobile] = useState('');
     const [automobiles, setAutomobiles] = useState([]);
     const [sales_person, setSalesPerson] = useState([]);
     const [customers, setCustomers] = useState([]);
-    const [price, setPrice] = useState('');
+    const [formData, setFormData] = useState({
+        automobile: '',
+        sales_person: '',
+        customer: '',
+        price: '',
+    });
 
-    const fetchDataAutomobile = async () => {
-        const urlAutomobile = "http://localhost:8100/api/automobiles/";
-        const responseAuto = await fetch(urlAutomobile);
-        console.log("response line 12 auto", responseAuto)
-        if (responseAuto.ok) {
-            const dataAuto = await responseAuto.json();
-            console.log("data line 14", dataAuto.autos)
-            setAutomobiles(dataAuto.autos);
-        }
-    }
+    const getDataAutomobile = async () => {
+        const url = "http://localhost:8100/api/automobiles/";
+        const response = await fetch(url);
 
-    const fetchDataSalesPerson = async () => {
-        const urlSalesPerson = "http://localhost:8090/api/salesperson/";
-        const responseSalesPerson = await fetch(urlSalesPerson);
-        console.log("response line 23", responseSalesPerson);
-        if (responseSalesPerson.ok) {
-            const dataSalesPerson = await responseSalesPerson.json();
-            console.log("data line 26 salesperson", dataSalesPerson.sales_person);
-            setSalesPerson(dataSalesPerson.sales_person)
+        if (response.ok) {
+            const data = await response.json();
+            setAutomobiles(data.autos);
         }
-    }
+    };
 
-    const fetchDataCustomer = async () => {
-        const urlCustomer = "http://localhost:8090/api/customers/";
-        const responseCustomer = await fetch(urlCustomer);
-        console.log("response line 38 customer----->", responseCustomer);
-        if (responseCustomer.ok) {
-            const dataCustomer = await responseCustomer.json();
-            console.log("data line 37", dataCustomer.customer);
-            setCustomers(dataCustomer.customer)
+    const getDataSalesPerson = async () => {
+        const url = "http://localhost:8090/api/salesperson/";
+        const response = await fetch(url);
+
+        if (response.ok) {
+            const data = await response.json();
+            setSalesPerson(data.sales_person)
         }
-    }
+    };
+
+    const getDataCustomer = async () => {
+        const url = "http://localhost:8090/api/customers/";
+        const response = await fetch(url);
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log("data customer line 37", data.customer);
+            setCustomers(data.customer)
+        }
+    };
 
     useEffect(() => {
-        fetchDataAutomobile();
-        fetchDataCustomer();
-        fetchDataSalesPerson();
+        getDataAutomobile();
+        getDataSalesPerson();
+        getDataCustomer();
     }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const data = {}
-        data.price = price;
-        // data.automobile = document.getElementById("automobile").value;
-
-        const salesUrl = "http://localhost:8090/api/salesrecords/";
-        const fetchSales = {
-            method: "post",
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
+        const url = "http://localhost:8090/api/salesrecords/";
+        const fetchConfig = {
+            method: 'post',
+            body: JSON.stringify(formData),
+            headers : {
+                'Content-Type': 'application/json',
             },
-
         };
-
-        const SalesRecordsResponse = await fetch(salesUrl, fetchSales);
-        if (SalesRecordsResponse.ok) {
-            setPrice('');
+        const response = await fetch(url, fetchConfig);
+        if (response.ok) {
+            setFormData({
+                automobile: '',
+                sales_person: '',
+                customers: '',
+                price: '',
+            });
         }
-        console.log("data ------>", data);
     }
-
-    const handlePriceChange = (event) => {
+    
+    const handleFormChange = (event) => {
         const value = event.target.value;
-        console.log("value line 68" , value)
-        setPrice(value);
+        const inputName = event.target.name;
+        setFormData({
+            ...formData,
+            [inputName]: value
+        })
     }
-
 
     return (
         <>
@@ -85,6 +87,8 @@ function SalesForm() {
                     <form onSubmit={handleSubmit} id="create-location-form">
                     <div className="form-floating mb-3">
                         <select
+                        onChange={handleFormChange}
+                        value={formData.vin}
                         required
                         name="automobile"
                         id="automobile"
@@ -93,7 +97,7 @@ function SalesForm() {
                         <option value="">Choose an automobile</option>
                         {automobiles.map((automobile) => {
                             return (
-                            <option key={automobile.id} value={automobile.href}>
+                            <option key={automobile.id} value={automobile.vin}>
                                 {automobile.vin}
                             </option>
                             );
@@ -102,6 +106,8 @@ function SalesForm() {
                     </div>
                     <div className="form-floating mb-3">
                         <select
+                        onChange={handleFormChange}
+                        value={formData.sales_person}
                         required
                         name="sales_person"
                         id="sales_person"
@@ -110,7 +116,7 @@ function SalesForm() {
                         <option value="">Choose a sales person</option>
                         {sales_person.map((salesperson) => {
                             return (
-                            <option key={salesperson.id} value={salesperson.href}>
+                            <option key={salesperson.id} value={salesperson.id}>
                                 {salesperson.name}
                             </option>
                             );
@@ -119,6 +125,8 @@ function SalesForm() {
                     </div>
                     <div className="form-floating mb-3">
                         <select
+                        onChange={handleFormChange}
+                        value={formData.customer}
                         required
                         name="customer"
                         id="customer"
@@ -127,7 +135,7 @@ function SalesForm() {
                         <option value="">Choose a customer</option>
                         {customers.map((customer) => {
                             return (
-                            <option key={customer.id} value={customer.href}>
+                            <option key={customer.id} value={customer.id}>
                                 {customer.name}
                             </option>
                             );
@@ -136,6 +144,8 @@ function SalesForm() {
                     </div>
                     <div className="form-floating mb-3">
                     <input
+                    onChange={handleFormChange}
+                    value={formData.price}
                     placeholder="Sale Price"
                     required
                     type="number"

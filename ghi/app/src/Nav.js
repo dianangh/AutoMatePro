@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
@@ -20,35 +20,69 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/sales">
-                Sales Records
+            <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sales
               </NavLink>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <NavLink className="dropdown-item" to="/sales">
+                    Sales Records
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/sales/new">
+                    New Sale Record
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/sales/employee">
+                    Salesperson Record
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/sales/employee/new">
+                    New Salesperson Form
+                  </NavLink>
+                </li>
+              </ul>
             </li>
-            <li>
-              <NavLink className="nav-link" aria-current="page" to="/sales/new">
-                New Sale Record
+            <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Customers
               </NavLink>
-            </li>
-            <li>
-              <NavLink className="nav-link" aria-current="page" to="/sales/employee">
-                Salesperson Record
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="nav-link" aria-current="page" to="/sales/employee/new">
-                New Salesperson Form
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="nav-link" aria-current="page" to="/customers">
-                Customer's List
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="nav-link" aria-current="page" to="/customers/new">
-                New Customer Form
-              </NavLink>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <NavLink className="dropdown-item" to="/customers">
+                    Customer's List
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/customers/new">
+                    New Customer Form
+                  </NavLink>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>

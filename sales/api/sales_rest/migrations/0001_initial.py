@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AutomobileVO',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('import_href', models.CharField(max_length=200, unique=True)),
                 ('vin', models.CharField(max_length=30, unique=True)),
                 ('color', models.CharField(max_length=20)),
@@ -26,7 +27,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Customer',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=20)),
                 ('address', models.CharField(max_length=80)),
                 ('phone_number', models.IntegerField(blank=True, null=True)),
@@ -35,7 +37,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SalesPerson',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=30)),
                 ('employee_number', models.CharField(max_length=15, unique=True)),
             ],
@@ -43,11 +46,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SaleRecord',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('price', models.CharField(max_length=50)),
-                ('automobile', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='automobiles', to='sales_rest.automobilevo')),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='customers', to='sales_rest.customer')),
-                ('sales_person', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='sales', to='sales_rest.salesperson')),
+                ('automobile',
+                 models.ForeignKey(on_delete=django.db.models.deletion.PROTECT,
+                                   related_name='automobiles',
+                                   to='sales_rest.automobilevo')),
+                ('customer',
+                 models.ForeignKey(on_delete=django.db.models.deletion.PROTECT,
+                                   related_name='customers',
+                                   to='sales_rest.customer')),
+                ('sales_person',
+                 models.ForeignKey(on_delete=django.db.models.deletion.PROTECT,
+                                   related_name='sales',
+                                   to='sales_rest.salesperson')),
             ],
         ),
     ]

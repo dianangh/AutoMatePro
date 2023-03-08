@@ -1,3 +1,4 @@
+from sales_rest.models import AutomobileVO
 import django
 import os
 import sys
@@ -10,9 +11,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sales_project.settings")
 django.setup()
 
 
-from sales_rest.models import AutomobileVO
-
-
 def get_automobile():
     response = requests.get("http://inventory-api:8000/api/automobiles/")
     content = json.loads(response.content)
@@ -20,9 +18,10 @@ def get_automobile():
         AutomobileVO.objects.update_or_create(
             import_href=automobile["href"],
             defaults={
-            "vin":automobile["vin"],
+                "vin": automobile["vin"],
             }
         )
+
 
 def poll():
     while True:
