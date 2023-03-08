@@ -196,6 +196,7 @@ def api_list_sales_records(request):
         content = json.loads(request.body)
 
         try:
+
             automobile = AutomobileVO.objects.get(vin=content["automobile"], sold=False)
             content["automobile"] = automobile
         except AutomobileVO.DoesNotExist:
@@ -217,7 +218,8 @@ def api_list_sales_records(request):
             content["customer"] = customer
         except Customer.DoesNotExist:
             return JsonResponse(
-                {"message": "Invalid customer id"}
+                {"message": "Invalid customer id"},
+                status=400,
             )
 
         if SaleRecord.objects.filter(automobile=content["automobile"]).exists():
