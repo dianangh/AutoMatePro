@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
+
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -10,7 +11,69 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li className="nav-item dropdown">
+              <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Inventory</NavLink>
+            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <NavLink className="dropdown-item" to="/manufacturer" >List of Manufacturers</NavLink>
+              </li>
+
+
+            <li>
+              <NavLink className="dropdown-item" to="/manufacturer/new">Create a manfacturer</NavLink>
+            </li>
+            <li>
+              <NavLink className="dropdown-item" to="/vehicle">List of vehicle models</NavLink>
+            </li>
+            <li>
+              <NavLink className="dropdown-item" to="/vehicle/new">Create a vehicle model</NavLink>
+            </li>
+            <li>
+              <NavLink className="dropdown-item" to="/automobile">List of automobiles</NavLink>
+            </li>
+            <li>
+              <NavLink className="dropdown-item" to="/automobile/new">Create an automobile</NavLink>
+            </li>
+
+            </ul>
+            </li>
+
+
+
+
+            <li className="nav-item dropdown">
+            <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Service</NavLink>
+            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <NavLink className="dropdown-item" to="/technician">Enter a technician</NavLink>
+            </li>
+            <li>
+              <NavLink className="dropdown-item" to="/service/new">Enter a service appointment</NavLink>
+            </li>
+            <li>
+              <NavLink className="dropdown-item" to="/service">List of appointments</NavLink>
+            </li>
+            <li>
+              <NavLink className="dropdown-item" to="/service/history">Service history</NavLink>
+            </li>
+            </ul>
+            </li>
           </ul>
+
         </div>
       </div>
     </nav>
