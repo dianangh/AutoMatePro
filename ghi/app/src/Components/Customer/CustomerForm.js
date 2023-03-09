@@ -9,16 +9,7 @@ function CustomerForm() {
 
     const [showSuccess, setShowSuccess] = useState(false);
 
-    const getData = async () => {
-        const url = "http://localhost:8090/api/customers/";
-        const response = await fetch(url);
-        if (response.ok) {
-            const data = await response.json();
-        }
-    };
-
     useEffect(() => {
-        getData();
     }, []);
 
     const handleSubmit = async(event) => {

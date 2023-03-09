@@ -4,22 +4,11 @@ function SalesPersonHistory() {
 
     const [salesPerson, setSalesPerson] = useState([]);
     const [sales, setSales] = useState([]);
-    const [filterSalesEmployeeId, setFilterSalesEmployeeId] = useState('');
-    const [filterCategory, setFilterCategory] = useState("employeeId");
+    const [filterSalesEmployeeId, setFilterSalesEmployeeId] = useState('Choose a Sales Person');
 
     const handleDelete = async (event) => {
-        const url = `http://localhost:8090/api/salesrecords/${event.target.id}`;
-
-        const fetchConfig = {
-            method: 'delete',
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }
-        const response = await fetch(url, fetchConfig);
-        const data = await response.json();
         setSales(sales.filter((sale) => String(sale.id) !== event.target.id));
-        }
+    }
 
     const getDataEmployee = async () => {
         const response = await fetch("http://localhost:8090/api/salesperson/");
@@ -53,12 +42,11 @@ function SalesPersonHistory() {
         setFilterSalesEmployeeId(value);
     };
 
-    const handleFilterCategoryChange= (event) => {
-        const value = event.target.value;
-        setFilterCategory(value)
-    };
 
     const filterSalesByEmployee = (sales, filterSalesEmployeeId) => {
+        if (filterSalesEmployeeId === 'Choose a Sales Person') { // added this condition to return all sales if default value is selected
+            return sales;
+        }
         return sales.filter((sale) =>
             sale.sales_person.name.toLowerCase().includes(filterSalesEmployeeId.toLowerCase())
         );
@@ -72,8 +60,8 @@ function SalesPersonHistory() {
                         <h1 className="text-center">Sales Person History</h1>
                         <div className="mb-3">
                             <select onChange={handleFilterChange} name="filterSalesEmployeeId"
-                                id="filterSalesEmployeeId" className="form-select">
-                            <option value="employeeName">Choose a Sales Person</option>
+                                id="filterSalesEmployeeId" className="form-select" value={filterSalesEmployeeId}>
+                            <option value="Choose a Sales Person">Choose a Sales Person</option>
                             {salesPerson.map((employee) => {
                                 return (
                                     <option key={employee.employeeId} value={employee.employeeName}>

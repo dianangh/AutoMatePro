@@ -10,6 +10,8 @@ function SalesForm() {
         customer: '',
         price: '',
     });
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [vinError, setVinError] = useState("");
 
     const getDataAutomobile = async () => {
         const url = "http://localhost:8100/api/automobiles/";
@@ -62,11 +64,20 @@ function SalesForm() {
             setFormData({
                 automobile: '',
                 sales_person: '',
-                customers: '',
+                customer: '',
                 price: '',
+                vin: '',
             });
+            setShowSuccess(true);
+            setTimeout(() => {
+                setShowSuccess(false);
+            }, 3000);
+            console.log(formData.automobile)
+            console.log(formData)
         }
     }
+
+
 
     const handleFormChange = (event) => {
         const value = event.target.value;
@@ -83,7 +94,12 @@ function SalesForm() {
                 <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
                     <h1 className="text-center">Record a new sale</h1>
-                    <form onSubmit={handleSubmit} id="create-location-form">
+                    {showSuccess && (
+                            <div className="alert alert-success" role="alert">
+                                Sale record created successfully!
+                            </div>
+                        )}
+                    <form onSubmit={handleSubmit} id="create-sale-form">
                     <div className="form-floating mb-3">
                         <select
                         onChange={handleFormChange}
@@ -102,6 +118,7 @@ function SalesForm() {
                             );
                         })}
                         </select>
+                        {vinError && <div className="text-danger">{vinError}</div>}
                     </div>
                     <div className="form-floating mb-3">
                         <select

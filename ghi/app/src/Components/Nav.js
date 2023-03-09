@@ -29,6 +29,8 @@ function Nav() {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                activeClassName="active"
+                exact
               >
                 Sales
               </NavLink>
@@ -57,7 +59,10 @@ function Nav() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/sales/employee/new-employee">
+                  <NavLink
+                    className="dropdown-item"
+                    to="/sales/employee/new-employee"
+                  >
                     Salespeople List
                   </NavLink>
                 </li>
@@ -72,6 +77,8 @@ function Nav() {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                activeClassName="active"
+                exact
               >
                 Customers
               </NavLink>
@@ -100,6 +107,8 @@ function Nav() {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                activeClassName="active"
+                exact
               >
                 Inventory
               </NavLink>
@@ -148,6 +157,8 @@ function Nav() {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                activeClassName="active"
+                exact
               >
                 Service
               </NavLink>

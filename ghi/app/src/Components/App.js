@@ -9,7 +9,7 @@ import SalesList from './Sales/SalesList';
 import SalesForm from './Sales/SalesRecords';
 import CustomerList from './Customer/CustomerList';
 import CustomerForm from './Customer/CustomerForm';
-import SalesPersonHistory from './Sales/SalesPersonHistory';
+import SalesPersonHistory from './Employee/SalesPersonHistory';
 import SalesPersonForm from './Employee/SalesPersonForm';
 import ServiceForm from './ServiceDpt/ServiceForm';
 import ServiceHistoryList from './ServiceDpt/ServiceHistoryList';
@@ -17,7 +17,7 @@ import ServiceList from './ServiceDpt/ServiceList';
 import TechnicianForm from './ServiceDpt/TechnicianForm';
 import VehicleForm from './Inventory/VehicleForm';
 import VehicleList from './Inventory/VehicleList';
-import SalesPeopleList from './Employee/SalesPersonList';
+import SalesPeopleList from './Employee/SalesPeopleList';
 
 
 function App() {

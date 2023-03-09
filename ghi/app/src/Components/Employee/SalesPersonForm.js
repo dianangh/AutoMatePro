@@ -8,13 +8,7 @@ function SalesPersonForm() {
 
     const [showSuccess, setShowSuccess] = useState(false);
 
-    const getData = async () => {
-        const url = "http://localhost:8090/api/salesperson/";
-        const response = await fetch(url);
-    };
-    
     useEffect(() => {
-        getData();
     }, []);
 
     const handleSubmit = async (event) => {
