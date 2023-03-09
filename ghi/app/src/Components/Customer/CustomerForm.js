@@ -55,8 +55,6 @@ function CustomerForm() {
         });
     };
 
-
-
     return (
         <>
             <div className="row">

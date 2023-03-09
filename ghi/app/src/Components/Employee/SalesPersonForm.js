@@ -11,11 +11,8 @@ function SalesPersonForm() {
     const getData = async () => {
         const url = "http://localhost:8090/api/salesperson/";
         const response = await fetch(url);
-
-        if (response.ok) {
-            const data = await response.json();
-        }
     };
+    
     useEffect(() => {
         getData();
     }, []);
@@ -55,7 +52,6 @@ function SalesPersonForm() {
 
     return (
         <>
-            <h1>Hello</h1>
             <div className="row">
                 <div className="offset-3 col-6">
                     <div className="shadow p-4 mt-4">

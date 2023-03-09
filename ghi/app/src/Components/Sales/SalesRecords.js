@@ -37,7 +37,6 @@ function SalesForm() {
 
         if (response.ok) {
             const data = await response.json();
-            console.log("data customer line 37", data.customer);
             setCustomers(data.customer)
         }
     };
@@ -68,7 +67,7 @@ function SalesForm() {
             });
         }
     }
-    
+
     const handleFormChange = (event) => {
         const value = event.target.value;
         const inputName = event.target.name;
@@ -162,6 +161,6 @@ function SalesForm() {
             </div>
         </>
     );
-    }
+}
 
-    export default SalesForm;
+export default SalesForm;

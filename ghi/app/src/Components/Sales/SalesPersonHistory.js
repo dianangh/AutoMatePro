@@ -6,7 +6,6 @@ function SalesPersonHistory() {
     const [sales, setSales] = useState([]);
     const [filterSalesEmployeeId, setFilterSalesEmployeeId] = useState('');
     const [filterCategory, setFilterCategory] = useState("employeeId");
-    // const [showModal, setShowModal] = useState(false);
 
     const handleDelete = async (event) => {
         const url = `http://localhost:8090/api/salesrecords/${event.target.id}`;
@@ -20,15 +19,12 @@ function SalesPersonHistory() {
         const response = await fetch(url, fetchConfig);
         const data = await response.json();
         setSales(sales.filter((sale) => String(sale.id) !== event.target.id));
-        // setShowModal(true);
-        // setTimeout(() => setShowModal(false), 3000);
         }
 
     const getDataEmployee = async () => {
         const response = await fetch("http://localhost:8090/api/salesperson/");
         if(response.ok){
             const data = await response.json();
-            console.log(data.sales_person)
             const employees = data.sales_person.map((employee) => {
                 return {
                     employeeName: employee.name,
@@ -87,11 +83,6 @@ function SalesPersonHistory() {
                             })}
                             </select>
                         </div>
-                        {/* {showModal && (
-                            <div className="alert alert-success" role="alert">
-                                Sales record deleted successfully!
-                            </div>
-                        )} */}
                         <table className="table table-striped">
                             <thead>
                                 <tr>

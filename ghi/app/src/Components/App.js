@@ -10,13 +10,15 @@ import SalesForm from './Sales/SalesRecords';
 import CustomerList from './Customer/CustomerList';
 import CustomerForm from './Customer/CustomerForm';
 import SalesPersonHistory from './Sales/SalesPersonHistory';
-import SalesPersonForm from './Sales/SalesPersonForm';
+import SalesPersonForm from './Employee/SalesPersonForm';
 import ServiceForm from './ServiceDpt/ServiceForm';
 import ServiceHistoryList from './ServiceDpt/ServiceHistoryList';
 import ServiceList from './ServiceDpt/ServiceList';
 import TechnicianForm from './ServiceDpt/TechnicianForm';
 import VehicleForm from './Inventory/VehicleForm';
 import VehicleList from './Inventory/VehicleList';
+import SalesPeopleList from './Employee/SalesPersonList';
+
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
           <Route path="sales/employee">
             <Route index element={<SalesPersonHistory />} />
             <Route path="new" element={<SalesPersonForm />} />
+            <Route path="new-employee" element={<SalesPeopleList />}/>
           </Route>
           <Route path="customers">
             <Route index element={<CustomerList />} />

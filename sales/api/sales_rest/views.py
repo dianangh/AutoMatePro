@@ -82,14 +82,7 @@ def api_list_customer(request):
         )
     else:
         content = json.loads(request.body)
-
-        try:
-            customer = Customer.objects.create(**content)
-        except Exception as e:
-            return JsonResponse(
-                {"message": str(e)},
-                status=400
-            )
+        customer = Customer.objects.create(**content)
         return JsonResponse(
             {"customer": customer},
             encoder=CustomerEncoder,
@@ -113,15 +106,10 @@ def api_show_customer(request, pk):
             response.status_code = 404
             return response
     elif request.method == "DELETE":
-        try:
-            customer = Customer.objects.get(pk=pk)
-            customer.delete()
-            return JsonResponse(
-                {"message": "customer deleted successfully"},
-                safe=False,
-            )
-        except Customer.DoesNotExist:
-            return JsonResponse({"message": "Customer is not in the system"})
+        count, _ = Customer.objects.filter(pk=pk).delete()
+        return JsonResponse(
+            {"Customer deleted": count > 0}
+        )
     elif request.method == "PUT":
         try:
             customer = Customer.objects.get(pk=pk)
@@ -149,7 +137,6 @@ def api_list_sales_records(request):
         )
     else:
         content = json.loads(request.body)
-
         try:
             automobile = AutomobileVO.objects.get(
                 vin=content["automobile"], sold=False)
@@ -159,7 +146,6 @@ def api_list_sales_records(request):
                 {"message": "Invalid Vin number"},
                 status=400,
             )
-
         try:
             sales_person = SalesPerson.objects.get(id=content["sales_person"])
             content["sales_person"] = sales_person
@@ -206,7 +192,6 @@ def api_show_sales_records(request, pk):
                 {"message": "Sales record is not in the system"},
                 status=400,
             )
-
     elif request.method == "DELETE":
         try:
             sales_record = SaleRecord.objects.get(pk=pk)
@@ -232,7 +217,6 @@ def api_show_sales_records(request, pk):
             )
         SaleRecord.objects.filter(id=pk).update(**content)
         sales_record = SaleRecord.objects.get(id=pk)
-
         return JsonResponse(
             sales_record,
             encoder=SaleRecordEncoder,

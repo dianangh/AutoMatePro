@@ -9,7 +9,7 @@ sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "service_project.settings")
 django.setup()
 
-from api.service_rest.models import AutomobileVO
+from service_rest.models import AutomobileVO
 
 
 def get_automobile():
