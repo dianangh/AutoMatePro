@@ -44,14 +44,12 @@ const ServiceList = () => {
       setService(service.filter(service=>String(service.id) !== e.target.id))
     }
 
-
     return(
     <>
      <div className='row'>
     <div className='col-12'>
         <div className='shadow p-4 mt-4'>
             <h1 className='text-center'>Service List</h1>
-
     <table className="table table-striped table-responsive-lg">
       <thead>
         <tr>
