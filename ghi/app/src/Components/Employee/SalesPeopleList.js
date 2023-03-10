@@ -50,7 +50,7 @@ function SalesPeopleList(){
                                             <tr key={salesPerson.id}>
                                                 <td>{ salesPerson.name }</td>
                                                 <td>{ salesPerson.employee_number }</td>
-                                                <td className="no-border-top"><button onClick={handleDelete} id={salesPerson.id} className="btn btn-sm btn-danger">Delete</button></td>
+                                                <td className="no-border-top"><button onClick={handleDelete} id={salesPerson.id} className="btn btn-sm btn-danger">Fire</button></td>
                                             </tr>
                                         )}
                                 )}
