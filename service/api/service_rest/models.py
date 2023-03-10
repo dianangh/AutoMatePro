@@ -16,9 +16,7 @@ class Service(models.Model):
     completed = models.BooleanField(default=False)
     vip = models.BooleanField(default=False)
     technician = models.ForeignKey(
-        Technician,
-        related_name="service",
-        on_delete=models.CASCADE
+        Technician, related_name="service", on_delete=models.CASCADE
     )
 
 

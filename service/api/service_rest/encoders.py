@@ -18,11 +18,7 @@ class ServiceRecordVO(ModelEncoder):
 
 class TechnicianListEncoder(ModelEncoder):
     model = Technician
-    properties = [
-        "technician_name",
-        "employee_number",
-        "id"
-    ]
+    properties = ["technician_name", "employee_number", "id"]
 
 
 class ServiceListEncoder(ModelEncoder):
@@ -39,4 +35,5 @@ class ServiceListEncoder(ModelEncoder):
     ]
     encoders = {
         "technician": TechnicianListEncoder(),
-        "automobile": AutomobileVOEncoder()}
+        "automobile": AutomobileVOEncoder(),
+    }

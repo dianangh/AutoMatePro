@@ -30,17 +30,14 @@ class SalesPerson(models.Model):
 
 class SaleRecord(models.Model):
     sales_person = models.ForeignKey(
-        SalesPerson,
-        related_name="sales",
-        on_delete=models.CASCADE)
+        SalesPerson, related_name="sales", on_delete=models.CASCADE
+    )
     customer = models.ForeignKey(
-        Customer,
-        related_name="customers",
-        on_delete=models.CASCADE)
+        Customer, related_name="customers", on_delete=models.CASCADE
+    )
     automobile = models.ForeignKey(
-        AutomobileVO,
-        related_name="automobiles",
-        on_delete=models.CASCADE)
+        AutomobileVO, related_name="automobiles", on_delete=models.CASCADE
+    )
     price = models.PositiveIntegerField(blank=False)
 
     def get_api_url(self):

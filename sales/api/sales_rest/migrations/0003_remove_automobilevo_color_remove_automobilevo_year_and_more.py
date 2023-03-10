@@ -6,21 +6,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('sales_rest', '0002_alter_customer_phone_number'),
+        ("sales_rest", "0002_alter_customer_phone_number"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='automobilevo',
-            name='color',
+            model_name="automobilevo",
+            name="color",
         ),
         migrations.RemoveField(
-            model_name='automobilevo',
-            name='year',
+            model_name="automobilevo",
+            name="year",
         ),
         migrations.AlterField(
-            model_name='salerecord',
-            name='price',
+            model_name="salerecord",
+            name="price",
             field=models.SmallIntegerField(),
         ),
     ]

@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('service_rest', '0005_rename_completed_service_completed'),
+        ("service_rest", "0005_rename_completed_service_completed"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='service',
-            name='vip',
+            model_name="service",
+            name="vip",
             field=models.BooleanField(default=False),
         ),
         migrations.AlterField(
-            model_name='technician',
-            name='employee_number',
+            model_name="technician",
+            name="employee_number",
             field=models.PositiveSmallIntegerField(),
         ),
     ]

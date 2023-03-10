@@ -13,9 +13,9 @@ from service_rest.models import ServiceRecordVO
 
 
 def get_serviceRecord():
-    response = requests.get('http://sales-api:8000/api/salesrecords/')
+    response = requests.get("http://sales-api:8000/api/salesrecords/")
     content = json.loads(response.content)
-    for sr in content['sales_record']:
+    for sr in content["sales_record"]:
         ServiceRecordVO.objects.update_or_create(
             vin=sr["automobile"]["vin"],
         )
@@ -23,7 +23,7 @@ def get_serviceRecord():
 
 def poll():
     while True:
-        print('Service poller polling for data')
+        print("Service poller polling for data")
         try:
             get_serviceRecord()
             pass

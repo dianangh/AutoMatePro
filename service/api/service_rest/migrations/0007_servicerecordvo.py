@@ -6,16 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('service_rest', '0006_service_vip_alter_technician_employee_number'),
+        ("service_rest", "0006_service_vip_alter_technician_employee_number"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ServiceRecordVO',
+            name="ServiceRecordVO",
             fields=[
-                ('id', models.BigAutoField(auto_created=True,
-                 primary_key=True, serialize=False, verbose_name='ID')),
-                ('vin', models.CharField(max_length=17)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("vin", models.CharField(max_length=17)),
             ],
         ),
     ]

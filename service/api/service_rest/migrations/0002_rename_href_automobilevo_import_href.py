@@ -6,13 +6,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('service_rest', '0001_initial'),
+        ("service_rest", "0001_initial"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='automobilevo',
-            old_name='href',
-            new_name='import_href',
+            model_name="automobilevo",
+            old_name="href",
+            new_name="import_href",
         ),
     ]

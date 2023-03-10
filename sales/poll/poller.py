@@ -20,13 +20,13 @@ def get_automobile():
             import_href=automobile["href"],
             defaults={
                 "vin": automobile["vin"],
-            }
+            },
         )
 
 
 def poll():
     while True:
-        print('Sales poller polling for data')
+        print("Sales poller polling for data")
         try:
             get_automobile()
             pass
