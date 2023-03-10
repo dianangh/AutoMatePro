@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 
-
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -37,20 +36,32 @@ function Nav() {
                 data-bs-auto-close="true"
               >
                 <li>
-                  <NavLink className="dropdown-item" to="/sales/">
-                    Sales Records
-                  </NavLink>
-                </li>
-                <li>
                   <NavLink className="dropdown-item" to="/sales/new">
                     New Sale Record
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/sales/employee/">
-                    Salesperson Record
+                  <NavLink className="dropdown-item" to="/sales/">
+                    Sales Records
                   </NavLink>
                 </li>
+              </ul>
+            </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="@"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="true"
+              >
+                Sales Associates
+              </a>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="navbarDropdown"
+                data-bs-auto-close="true"
+              >
                 <li>
                   <NavLink className="dropdown-item" to="/sales/employee/new">
                     New Salesperson Form
@@ -62,6 +73,11 @@ function Nav() {
                     to="/sales/employee/new-employee"
                   >
                     Salespeople List
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/sales/employee/">
+                    Salesperson Record
                   </NavLink>
                 </li>
               </ul>
@@ -109,18 +125,13 @@ function Nav() {
                 data-bs-auto-close="true"
               >
                 <li>
-                  <NavLink className="dropdown-item" to="/manufacturer/">
-                    List of Manufacturers
-                  </NavLink>
-                </li>
-                <li>
                   <NavLink className="dropdown-item" to="/manufacturer/new">
                     Create a manfacturer
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/vehicle/">
-                    List of vehicle models
+                  <NavLink className="dropdown-item" to="/manufacturer/">
+                    List of Manufacturers
                   </NavLink>
                 </li>
                 <li>
@@ -129,13 +140,18 @@ function Nav() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/automobile/">
-                    List of automobiles
+                  <NavLink className="dropdown-item" to="/vehicle/">
+                    List of vehicle models
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="dropdown-item" to="/automobile/new">
                     Create an automobile
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/automobile/">
+                    List of automobiles
                   </NavLink>
                 </li>
               </ul>
@@ -155,10 +171,14 @@ function Nav() {
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <NavLink className="dropdown-item" to="/technician/new/">Enter a technician</NavLink>
+                  <NavLink className="dropdown-item" to="/technician/new/">
+                    Enter a technician
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/technician/">List of Technicians</NavLink>
+                  <NavLink className="dropdown-item" to="/technician/">
+                    List of Technicians
+                  </NavLink>
                 </li>
                 <li>
                   <NavLink className="dropdown-item" to="/service/new/">

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 function CustomerForm() {
+    const [showSuccess, setShowSuccess] = useState(false);
     const [formData, setFormData] = useState ({
         name: '',
         address: '',
         phone_number: '',
     });
-
-    const [showSuccess, setShowSuccess] = useState(false);
 
     useEffect(() => {
     }, []);

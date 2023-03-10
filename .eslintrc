@@ -1,0 +1,12 @@
+{
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": [
+        "error",
+        {
+            "tabWidth": 2,
+            "printWidth": 80
+        }
+        ]
+    }
+}

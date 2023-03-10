@@ -18,54 +18,51 @@ import TechnicianForm from './ServiceDpt/TechnicianForm';
 import VehicleForm from './Inventory/VehicleForm';
 import VehicleList from './Inventory/VehicleList';
 import SalesPeopleList from './Employee/SalesPeopleList';
-
 import TechnicianList from './ServiceDpt/TechnicianList';
-
 function App() {
-  return (
+return (
     <BrowserRouter>
-      <Nav />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="sales">
-            <Route index element={<SalesList />} />
-            <Route path="new" element={<SalesForm />} />
-          </Route>
-          <Route path="sales/employee">
-            <Route index element={<SalesPersonHistory />} />
-            <Route path="new" element={<SalesPersonForm />} />
-            <Route path="new-employee" element={<SalesPeopleList />}/>
-          </Route>
-          <Route path="customers">
-            <Route index element={<CustomerList />} />
-            <Route path="new" element={<CustomerForm />} />
-          </Route>
-          <Route path="service">
-            <Route path="new" element={<ServiceForm/>}/>
-            <Route path="history" element={<ServiceHistoryList/>}/>
-            <Route index element={<ServiceList/>}/>
-          </Route>
-          <Route path="technician">
-            <Route path='new' element={<TechnicianForm/>}/>
-            <Route index element={<TechnicianList/>}/>
-          </Route>
-          <Route path="manufacturer">
-            <Route path='new' element={<ManufacturerForm/>}/>
-            <Route index element={<ManufacturerList/>}/>
-          </Route>
-          <Route path="vehicle">
-            <Route path='new' element={<VehicleForm/>}/>
-            <Route index element={<VehicleList/>}/>
-          </Route>
-          <Route path="automobile">
-            <Route path='new' element={<AutomobileForm/>}/>
-            <Route index element={<AutomobileList/>}/>
-          </Route>
-        </Routes>
-      </div>
+        <Nav />
+        <div className="container">
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="sales">
+                    <Route index element={<SalesList />} />
+                    <Route path="new" element={<SalesForm />} />
+                </Route>
+                <Route path="sales/employee">
+                    <Route index element={<SalesPersonHistory />} />
+                    <Route path="new" element={<SalesPersonForm />} />
+                    <Route path="new-employee" element={<SalesPeopleList />}/>
+                </Route>
+                <Route path="customers">
+                    <Route index element={<CustomerList />} />
+                    <Route path="new" element={<CustomerForm />} />
+                </Route>
+                <Route path="service">
+                    <Route path="new" element={<ServiceForm/>}/>
+                    <Route path="history" element={<ServiceHistoryList/>}/>
+                    <Route index element={<ServiceList/>}/>
+                </Route>
+                <Route path="technician">
+                    <Route path='new' element={<TechnicianForm/>}/>
+                    <Route index element={<TechnicianList/>}/>
+                </Route>
+                <Route path="manufacturer">
+                    <Route path='new' element={<ManufacturerForm/>}/>
+                    <Route index element={<ManufacturerList/>}/>
+                </Route>
+                <Route path="vehicle">
+                    <Route path='new' element={<VehicleForm/>}/>
+                    <Route index element={<VehicleList/>}/>
+                </Route>
+                <Route path="automobile">
+                    <Route path='new' element={<AutomobileForm/>}/>
+                    <Route index element={<AutomobileList/>}/>
+                </Route>
+            </Routes>
+        </div>
     </BrowserRouter>
-  );
+);
 }
-
 export default App;
