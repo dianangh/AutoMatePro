@@ -13,6 +13,7 @@ const ManufacturerList = () => {
     useEffect(() => {
         getdata()
     }, [])
+    
 
     return(
         <>
@@ -26,6 +27,7 @@ const ManufacturerList = () => {
         <thead>
             <tr>
             <th>Name</th>
+
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,7 @@ const ManufacturerList = () => {
         return (
             <tr key={manufacturer.id}>
             <td>{manufacturer.name}</td>
+
             </tr>
             );
             })}
