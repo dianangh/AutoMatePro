@@ -31,7 +31,7 @@ const ServiceHistoryList=()=> {
             <h1 className='text-center'>Service History List</h1>
     <div className='input-group'>
     <input onChange={handleSearchInput} value={searchService} type="search" placeholder='Search by VIN' className ="form-control"/>
-    <button type="button" className='btn btn-outline-primary'>Search VIN</button>
+    
     </div>
     <table className="table table-striped">
 
@@ -50,7 +50,7 @@ const ServiceHistoryList=()=> {
                 <tr key={service.id}>
                 <td>{service.vin}</td>
                 <td>{service.name}</td>
-                <td>{service.appointment_date}</td>
+                <td>{new Date(service.appointment_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
                 <td>{service.reason}</td>
                 <td>{service.technician.technician_name}</td>
 

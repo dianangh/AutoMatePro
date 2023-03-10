@@ -96,8 +96,14 @@ def detail_service(request, id):
             safe=False
         )
     if request.method == "PUT":
-        Service.objects.filter(id=id).update(completed=True)
         service = Service.objects.get(id=id)
+        content = json.loads(request.body)
+        if "completed" in content:
+            service.completed = content["completed"]
+        if "vip" in content:
+            service.vip = content["vip"]
+        service.save()
+
         return JsonResponse(
             service,
             encoder=ServiceListEncoder,

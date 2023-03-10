@@ -17,6 +17,7 @@ import ServiceList from './ServiceDpt/ServiceList';
 import TechnicianForm from './ServiceDpt/TechnicianForm';
 import VehicleForm from './Inventory/VehicleForm';
 import VehicleList from './Inventory/VehicleList';
+import TechnicianList from './ServiceDpt/TechnicianList';
 
 function App() {
   return (
@@ -43,7 +44,8 @@ function App() {
             <Route index element={<ServiceList/>}/>
           </Route>
           <Route path="technician">
-            <Route index element={<TechnicianForm/>}/>
+            <Route path='new' element={<TechnicianForm/>}/>
+            <Route index element={<TechnicianList/>}/>
           </Route>
           <Route path="manufacturer">
             <Route path='new' element={<ManufacturerForm/>}/>

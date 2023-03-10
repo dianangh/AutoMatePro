@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 function TechnicianForm() {
     const [technician, setTechnician] = useState([])
+    const [showSuccess, setShowSuccess] = useState(false)
     const [formData, setFromData] = useState({
 
         technician_name: '',
@@ -28,6 +29,10 @@ function TechnicianForm() {
                 technician_name: '',
                 employee_number: '',
             })
+            setShowSuccess(true)
+            setTimeout(() => {
+                setShowSuccess(false);
+            }, 3000)
         }
     }
     const handleFormChange = (e) => {
@@ -44,6 +49,11 @@ function TechnicianForm() {
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
                 <h1>Add a Technician</h1>
+                {showSuccess && (
+                <div className="alert alert-success" role="alert">
+                    New technician added!
+                </div>
+                        )}
                 <form onSubmit={handleSubmit} id="create-shoe-form">
                     <div className="form-floating mb-3">
                     <input onChange={handleFormChange} value={formData.technician_name} placeholder="Technician Name" required type="text" name="technician_name" id="technician_name" className="form-control" />

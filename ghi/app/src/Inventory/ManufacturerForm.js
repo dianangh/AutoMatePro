@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 function ManufacturerForm() {
     const [manufacturer, setManufacturer] = useState([])
+    const [showSuccess, setShowSuccess] = useState(false)
     const [formData, setFromData] = useState({
 
         name: '',
@@ -26,6 +27,10 @@ function ManufacturerForm() {
 
                 name: '',
             })
+            setShowSuccess(true)
+            setTimeout(() => {
+                setShowSuccess(false);
+            }, 3000)
         }
     }
     const handleFormChange = (e) => {
@@ -41,6 +46,11 @@ function ManufacturerForm() {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
+                {showSuccess && (
+                <div className="alert alert-success" role="alert">
+                    Manufacturer created successfully!
+                </div>
+                        )}
                 <h1>Add a manufacturer</h1>
                 <form onSubmit={handleSubmit} id="create-manufacturer-form">
                     <div className="form-floating mb-3">

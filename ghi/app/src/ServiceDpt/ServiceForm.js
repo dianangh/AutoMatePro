@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 function ServiceForm() {
     const [technician, setTechnician] = useState([])
-
+    const [showSuccess, setShowSuccess] = useState(false)
     const [formData, setFormData] = useState({
         vin: '',
         name: '',
@@ -52,23 +52,49 @@ function ServiceForm() {
                 technician: '',
 
             })
+            setShowSuccess(true)
+            setTimeout(() => {
+                setShowSuccess(false);
+            }, 3000)
         }
     }
-    const handleFormChange = (e) => {
+    const handleFormChange = async (e) => {
         const value = e.target.value
         const inputName = e.target.name
 
-        setFormData({
-            ...formData,
+        if (inputName === "vin") {
+          const url = "http://localhost:8090/api/salesrecords/"
+          const response = await fetch(url)
+          if (response.ok) {
+            const data = await response.json()
+            const isVIP = data.sales_record.some((record) => record.automobile.vin === value)
+            setFormData({
+              ...formData,
+              vip: isVIP,
+              [inputName]: value,
+            })
+          }
+        } else {
 
-            [inputName]:value
-        })
+          setFormData({
+            ...formData,
+            [inputName]: value,
+          })
+        }
     }
+
+
+
     return (
         <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
           <h1>Add a service</h1>
+          {showSuccess && (
+                <div className="alert alert-success" role="alert">
+                    Service appointment added!
+                </div>
+                        )}
           <form onSubmit={handleSubmit} id="create-service-form">
             <div className="form-floating mb-3">
               <input onChange={handleFormChange} value={formData.vin} placeholder="VIN" required type="number" name="vin" id="vin" className="form-control" />
@@ -79,7 +105,7 @@ function ServiceForm() {
               <label htmlFor="Name">Name</label>
             </div>
             <div className="form-floating mb-3">
-              <input onChange={handleFormChange} value={formData.appointment_date} placeholder="Appointment Date" required type="date" name="appointment_date" id="appointment_date" className="form-control" />
+              <input onChange={handleFormChange} value={formData.appointment_date} placeholder="Appointment Date" required type="datetime-local" name="appointment_date" id="appointment_date" className="form-control" />
               <label htmlFor="Appointment Date">Appointment Date</label>
             </div>
             <div className="form-floating mb-3">

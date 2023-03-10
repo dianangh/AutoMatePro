@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 function VehicleForm() {
     const [manufacturer, setmanufacturer] = useState([])
+    const [showSuccess, setShowSuccess] = useState(false)
     const [formData, setFromData] = useState({
 
         name: '',
@@ -43,6 +44,10 @@ function VehicleForm() {
                 picture_url: '',
                 manufacturer_id: '',
             })
+            setShowSuccess(true)
+            setTimeout(() => {
+                setShowSuccess(false);
+            }, 3000)
         }
     }
     const handleFormChange = (e) => {
@@ -59,10 +64,15 @@ function VehicleForm() {
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
                 <h1>Add a vehicle</h1>
+                {showSuccess && (
+                <div className="alert alert-success" role="alert">
+                    Vehicle created successfully!
+                </div>
+                )}
                 <form onSubmit={handleSubmit} id="create-model-form">
                     <div className="form-floating mb-3">
                     <input onChange={handleFormChange} value={formData.name} placeholder="Technician Name" required type="text" name="name" id="name" className="form-control" />
-                    <label htmlFor="Manufacturer">Manufacturer Name</label>
+                    <label htmlFor="Manufacturer">Model Name</label>
                     </div>
                     <div className="form-floating mb-3">
                     <input onChange={handleFormChange} value={formData.picture_url} placeholder="Picture Url" required type="text" name="picture_url" id="picture_url" className="form-control" />

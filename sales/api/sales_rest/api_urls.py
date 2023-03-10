@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import (api_list_salesperson, api_show_salesperson,
+from .api_views import (api_list_salesperson, api_show_salesperson,
                     api_list_customer, api_show_customer,
                     api_list_sales_records, api_show_sales_records
                     )

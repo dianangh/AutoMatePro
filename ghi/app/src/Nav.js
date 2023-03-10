@@ -113,7 +113,10 @@ function Nav() {
               <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Service</NavLink>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li>
-                  <NavLink className="dropdown-item" to="/technician">Enter a technician</NavLink>
+                  <NavLink className="dropdown-item" to="/technician/new">Enter a technician</NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/technician">List of Technicians</NavLink>
                 </li>
                 <li>
                   <NavLink className="dropdown-item" to="/service/new">Enter a service appointment</NavLink>
@@ -126,7 +129,7 @@ function Nav() {
                 </li>
               </ul>
             </li>
-            
+
           </ul>
         </div>
       </div>

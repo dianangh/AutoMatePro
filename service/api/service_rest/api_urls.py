@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import list_service, list_tech, show_tech, detail_service, service_history
+from .api_views import list_service, list_tech, show_tech, detail_service, service_history
 
 urlpatterns = [
     path("technician/", list_tech, name="list_tech"),

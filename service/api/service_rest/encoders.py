@@ -1,13 +1,18 @@
 from common.json import ModelEncoder
 
-from .models import AutomobileVO, Service, Technician
+from .models import AutomobileVO, Service, Technician, ServiceRecordVO
 
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = [
-        "vin"
+        "vin",
+        "vip",
     ]
+
+class ServiceRecordVO(ModelEncoder):
+    model = ServiceRecordVO
+    properties = ["vin"]
 
 
 class TechnicianListEncoder(ModelEncoder):
@@ -28,6 +33,7 @@ class ServiceListEncoder(ModelEncoder):
         "appointment_date",
         "reason",
         "completed",
+        "vip",
         "technician",
     ]
-    encoders = {"technician": TechnicianListEncoder()}
+    encoders = {"technician": TechnicianListEncoder(), "automobile": AutomobileVOEncoder()}
