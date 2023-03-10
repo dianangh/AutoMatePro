@@ -34,7 +34,7 @@ function SalesList(){
     return (
         <>
             <div className="row">
-                <div className="offset-3 col-6">
+                <div className="col-12">
                     <div className="shadow p-4 mt-4">
                         <h1 className="text-center">List of Sales</h1>
                         <table className="table table-striped">
@@ -44,6 +44,7 @@ function SalesList(){
                                     <th>employee Number</th>
                                     <th>Purchaser Name</th>
                                     <th>VIN</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>

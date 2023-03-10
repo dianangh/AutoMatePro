@@ -40,6 +40,7 @@ function SalesPeopleList(){
                                 <tr>
                                     <th>Sales Person Name</th>
                                     <th>Sales Person Id</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>

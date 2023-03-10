@@ -41,6 +41,7 @@ function CustomerList(){
                                     <th>Customer Name</th>
                                     <th>Customer Address</th>
                                     <th>Customer Phone Number</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
