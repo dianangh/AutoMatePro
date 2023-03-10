@@ -19,6 +19,7 @@ import VehicleForm from './Inventory/VehicleForm';
 import VehicleList from './Inventory/VehicleList';
 import SalesPeopleList from './Employee/SalesPeopleList';
 import TechnicianList from './ServiceDpt/TechnicianList';
+
 function App() {
 return (
     <BrowserRouter>
