@@ -22,24 +22,22 @@ function Nav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item dropdown">
-              <NavLink
+              <a
                 className="nav-link dropdown-toggle"
-                to="#"
-                id="navbarDropdownMenuLink"
+                href="@"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
-                activeClassName="active"
-                exact
+                aria-expanded="true"
               >
                 Sales
-              </NavLink>
+              </a>
               <ul
                 className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
+                aria-labelledby="navbarDropdown"
+                data-bs-auto-close="true"
               >
                 <li>
-                  <NavLink className="dropdown-item" to="/sales">
+                  <NavLink className="dropdown-item" to="/sales/">
                     Sales Records
                   </NavLink>
                 </li>
@@ -49,7 +47,7 @@ function Nav() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/sales/employee">
+                  <NavLink className="dropdown-item" to="/sales/employee/">
                     Salesperson Record
                   </NavLink>
                 </li>
@@ -68,26 +66,23 @@ function Nav() {
                 </li>
               </ul>
             </li>
-
             <li className="nav-item dropdown">
-              <NavLink
+              <a
                 className="nav-link dropdown-toggle"
-                to="#"
-                id="navbarDropdownMenuLink"
+                href="@"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
-                activeClassName="active"
-                exact
+                aria-expanded="true"
               >
                 Customers
-              </NavLink>
+              </a>
               <ul
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
+                data-bs-auto-close="true"
               >
                 <li>
-                  <NavLink className="dropdown-item" to="/customers">
+                  <NavLink className="dropdown-item" to="/customers/">
                     Customer's List
                   </NavLink>
                 </li>
@@ -98,26 +93,23 @@ function Nav() {
                 </li>
               </ul>
             </li>
-
             <li className="nav-item dropdown">
-              <NavLink
+              <a
                 className="nav-link dropdown-toggle"
-                to="#"
-                id="navbarDropdownMenuLink"
+                href="@"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
-                activeClassName="active"
-                exact
+                aria-expanded="true"
               >
                 Inventory
-              </NavLink>
+              </a>
               <ul
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
+                data-bs-auto-close="true"
               >
                 <li>
-                  <NavLink className="dropdown-item" to="/manufacturer">
+                  <NavLink className="dropdown-item" to="/manufacturer/">
                     List of Manufacturers
                   </NavLink>
                 </li>
@@ -132,12 +124,12 @@ function Nav() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/vehicle/new">
+                  <NavLink className="dropdown-item" to="/vehicle/new/">
                     Create a vehicle model
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/automobile">
+                  <NavLink className="dropdown-item" to="/automobile/">
                     List of automobiles
                   </NavLink>
                 </li>
@@ -148,41 +140,37 @@ function Nav() {
                 </li>
               </ul>
             </li>
-
             <li className="nav-item dropdown">
-              <NavLink
+              <a
                 className="nav-link dropdown-toggle"
-                to="#"
-                id="navbarDropdownMenuLink"
+                href="@"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
-                activeClassName="active"
-                exact
+                aria-expanded="true"
               >
                 Service
-              </NavLink>
+              </a>
               <ul
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <NavLink className="dropdown-item" to="/technician">
+                  <NavLink className="dropdown-item" to="/technician/">
                     Enter a technician
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/service/new">
+                  <NavLink className="dropdown-item" to="/service/new/">
                     Enter a service appointment
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/service">
+                  <NavLink className="dropdown-item" to="/service/">
                     List of appointments
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/service/history">
+                  <NavLink className="dropdown-item" to="/service/history/">
                     Service history
                   </NavLink>
                 </li>

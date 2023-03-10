@@ -137,31 +137,16 @@ def api_list_sales_records(request):
         )
     else:
         content = json.loads(request.body)
-        try:
-            automobile = AutomobileVO.objects.get(
-                vin=content["automobile"], sold=False)
-            content["automobile"] = automobile
-        except AutomobileVO.DoesNotExist:
-            return JsonResponse(
-                {"message": "Invalid Vin number"},
-                status=400,
-            )
-        try:
-            sales_person = SalesPerson.objects.get(id=content["sales_person"])
-            content["sales_person"] = sales_person
-        except SalesPerson.DoesNotExist:
-            return JsonResponse(
-                {"message": "Invalid sales person"},
-                status=400,
-            )
-        try:
-            customer = Customer.objects.get(id=content["customer"])
-            content["customer"] = customer
-        except Customer.DoesNotExist:
-            return JsonResponse(
-                {"message": "Invalid customer id"},
-                status=400,
-            )
+        automobile = AutomobileVO.objects.get(
+            vin=content["automobile"], sold=True)
+        content["automobile"] = automobile
+
+        sales_person = SalesPerson.objects.get(id=content["sales_person"])
+        content["sales_person"] = sales_person
+
+        customer = Customer.objects.get(id=content["customer"])
+        content["customer"] = customer
+
         if SaleRecord.objects.filter(
                 automobile=content["automobile"]).exists():
             return JsonResponse(

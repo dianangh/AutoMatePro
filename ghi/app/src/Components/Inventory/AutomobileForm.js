@@ -76,7 +76,7 @@ function AutomobileForm() {
                     </div>
                     <div className="mb-3">
                     <select onChange={handleFormChange} value={formData.model_id} required name="model_id" id="model_id" className="form-select">
-                        <option value="">Choose a Model</option>
+                        <option key="" value="">Choose a Model</option>
                         {vehicle.map(vehicle => {
                         return (
                             <option key={vehicle.manufacturer.id} value={vehicle.manufacturer.id}>{vehicle.name}</option>

@@ -87,7 +87,7 @@ function SalesPersonHistory() {
                                         <td>{sale.sales_person.name}</td>
                                         <td>{sale.customer.name}</td>
                                         <td>{sale.automobile.vin}</td>
-                                        <td>{sale.price}</td>
+                                        <td>{new Intl.NumberFormat('en', { style: 'currency', currency: 'USD', minimumFractionDigits:0 }).format(sale.price)}</td>
                                         <td>
                                             <button onClick={handleDelete} id={sale.id} className="btn btn-sm btn-danger">
                                             Delete
