@@ -1,8 +1,8 @@
 from django.urls import path
 from .api_views import (api_list_salesperson, api_show_salesperson,
-                    api_list_customer, api_show_customer,
-                    api_list_sales_records, api_show_sales_records
-                    )
+                        api_list_customer, api_show_customer,
+                        api_list_sales_records, api_show_sales_records
+                        )
 
 urlpatterns = [
     path("salesperson/", api_list_salesperson, name="api_list_salesperson"),

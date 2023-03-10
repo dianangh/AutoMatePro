@@ -143,7 +143,7 @@ def api_list_sales_records(request):
             print(automobile)
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
-                {"message": "AutomobileVO doesn't exist" },
+                {"message": "AutomobileVO doesn't exist"},
                 status=400,
             )
 
@@ -165,7 +165,6 @@ def api_list_sales_records(request):
                 encoder=SaleRecordEncoder,
                 safe=False,
             )
-
 
 
 @require_http_methods(["DELETE", "GET", "PUT"])

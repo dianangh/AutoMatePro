@@ -42,7 +42,6 @@ class SaleRecord(models.Model):
         related_name="automobiles",
         on_delete=models.CASCADE)
     price = models.PositiveIntegerField(blank=False)
-    
 
     def get_api_url(self):
         return reverse("api_show_sales", kwargs={"pk": self.pk})

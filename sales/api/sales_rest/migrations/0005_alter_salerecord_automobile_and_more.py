@@ -14,16 +14,25 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='salerecord',
             name='automobile',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='automobiles', to='sales_rest.automobilevo'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='automobiles',
+                to='sales_rest.automobilevo'),
         ),
         migrations.AlterField(
             model_name='salerecord',
             name='customer',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='customers', to='sales_rest.customer'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='customers',
+                to='sales_rest.customer'),
         ),
         migrations.AlterField(
             model_name='salerecord',
             name='sales_person',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sales', to='sales_rest.salesperson'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='sales',
+                to='sales_rest.salesperson'),
         ),
     ]

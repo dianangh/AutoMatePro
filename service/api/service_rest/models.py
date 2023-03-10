@@ -29,5 +29,6 @@ class AutomobileVO(models.Model):
     model = models.CharField(max_length=200)
     manufacturer = models.CharField(max_length=200)
 
+
 class ServiceRecordVO(models.Model):
     vin = models.CharField(max_length=17)

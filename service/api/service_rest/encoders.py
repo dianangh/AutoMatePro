@@ -10,6 +10,7 @@ class AutomobileVOEncoder(ModelEncoder):
         "vip",
     ]
 
+
 class ServiceRecordVO(ModelEncoder):
     model = ServiceRecordVO
     properties = ["vin"]
@@ -36,4 +37,6 @@ class ServiceListEncoder(ModelEncoder):
         "vip",
         "technician",
     ]
-    encoders = {"technician": TechnicianListEncoder(), "automobile": AutomobileVOEncoder()}
+    encoders = {
+        "technician": TechnicianListEncoder(),
+        "automobile": AutomobileVOEncoder()}
