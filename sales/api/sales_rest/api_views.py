@@ -137,16 +137,21 @@ def api_list_sales_records(request):
         )
     else:
         content = json.loads(request.body)
-        automobile = AutomobileVO.objects.get(
-            vin=content["automobile"], sold=True)
-        content["automobile"] = automobile
+        print(content)
+        try:
+            automobile = AutomobileVO.objects.get(vin=content["automobile"])
+            print(automobile)
+        except AutomobileVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "AutomobileVO doesn't exist" },
+                status=400,
+            )
 
+        content["automobile"] = automobile
         sales_person = SalesPerson.objects.get(id=content["sales_person"])
         content["sales_person"] = sales_person
-
         customer = Customer.objects.get(id=content["customer"])
         content["customer"] = customer
-
         if SaleRecord.objects.filter(
                 automobile=content["automobile"]).exists():
             return JsonResponse(
@@ -160,6 +165,7 @@ def api_list_sales_records(request):
                 encoder=SaleRecordEncoder,
                 safe=False,
             )
+
 
 
 @require_http_methods(["DELETE", "GET", "PUT"])
