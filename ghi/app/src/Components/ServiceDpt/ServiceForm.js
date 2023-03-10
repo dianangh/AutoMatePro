@@ -10,7 +10,6 @@ function ServiceForm() {
         reason: '',
 
         technician: '',
-
     })
 
     const fetchData = async () => {
@@ -29,9 +28,7 @@ function ServiceForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-
         const url = 'http://localhost:8080/api/service/'
-
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(formData),
