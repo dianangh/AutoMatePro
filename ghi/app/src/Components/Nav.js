@@ -53,7 +53,7 @@ function Nav() {
                 </li>
                 <li>
                   <NavLink className="dropdown-item" to="/sales/employee/new">
-                    New Salespeople Form
+                    New Salesperson Form
                   </NavLink>
                 </li>
                 <li>
@@ -119,7 +119,7 @@ function Nav() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/vehicle">
+                  <NavLink className="dropdown-item" to="/vehicle/">
                     List of vehicle models
                   </NavLink>
                 </li>
@@ -155,9 +155,10 @@ function Nav() {
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <NavLink className="dropdown-item" to="/technician/">
-                    Enter a technician
-                  </NavLink>
+                  <NavLink className="dropdown-item" to="/technician/new/">Enter a technician</NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/technician/">List of Technicians</NavLink>
                 </li>
                 <li>
                   <NavLink className="dropdown-item" to="/service/new/">

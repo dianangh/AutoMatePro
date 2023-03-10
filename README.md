@@ -9,7 +9,7 @@ We'll be using Bootstrap to customize the architecture of the project
 
 ## Service microservice
 
-I'll create a service API that will handle all the automobile service appointments and a service poller that will integrate with all the other services. I'll have a AutoMobileVO, Technician and Appointment model. The AutomobileVo will take right from the inventory microservice.
+I'll create a service API that will handle all the automobile service appointments and a service poller that will integrate with the other sales microservice. I'll have a SalesRecordVO, Technician and Appointment model. The SalesRecordVo will take right from the sales microservice and provide reference to whether a car is eligible for vip status or not.
 
 ## Sales microservice
 

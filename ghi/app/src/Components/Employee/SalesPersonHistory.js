@@ -55,7 +55,7 @@ function SalesPersonHistory() {
     return (
         <>
             <div className="row">
-                <div className="offset-3 col-6">
+                <div className="col-12">
                     <div className="shadow p-4 mt-4">
                         <h1 className="text-center">Sales Person History</h1>
                         <div className="mb-3">
@@ -76,8 +76,9 @@ function SalesPersonHistory() {
                                 <tr>
                                     <th>Sales Person</th>
                                     <th>Customer</th>
-                                    <th>VIN</th>
+                                    <th className="m-auto">VIN</th>
                                     <th>Sale Price</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>

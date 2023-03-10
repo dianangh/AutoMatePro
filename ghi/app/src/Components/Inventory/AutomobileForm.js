@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 function AutomobileForm() {
     const [vehicle, setVehicle] = useState([])
+    const [showSuccess, setShowSuccess] = useState(false)
     const [formData, setFromData] = useState({
 
         color: '',
@@ -45,6 +46,10 @@ function AutomobileForm() {
                 vin: '',
                 model_id: '',
             })
+            setShowSuccess(true)
+            setTimeout(() => {
+                setShowSuccess(false);
+            }, 3000)
         }
     }
     const handleFormChange = (e) => {
@@ -61,6 +66,11 @@ function AutomobileForm() {
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
                 <h1>Add a vehicle</h1>
+                {showSuccess && (
+                <div className="alert alert-success" role="alert">
+                    Vehicle successfully added!
+                </div>
+                        )}
                 <form onSubmit={handleSubmit} id="create-automobile-form">
                     <div className="form-floating mb-3">
                     <input onChange={handleFormChange} value={formData.color} placeholder="Color" required type="text" name="color" id="color" className="form-control" />

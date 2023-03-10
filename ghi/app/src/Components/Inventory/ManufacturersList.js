@@ -14,10 +14,11 @@ const ManufacturerList = () => {
         getdata()
     }, [])
 
+
     return(
         <>
         <div className='row'>
-            <div className='offset-3 col-6'>
+            <div className='offset-3 col-5'>
                 <div className='shadow p-4 mt-4'>
                     <h1 className='text-center'>Manufacturers</h1>
 
@@ -26,6 +27,8 @@ const ManufacturerList = () => {
         <thead>
             <tr>
             <th>Name</th>
+            <th>Id</th>
+
             </tr>
         </thead>
         <tbody>
@@ -33,6 +36,8 @@ const ManufacturerList = () => {
         return (
             <tr key={manufacturer.id}>
             <td>{manufacturer.name}</td>
+            <td>{manufacturer.id}</td>
+
             </tr>
             );
             })}
