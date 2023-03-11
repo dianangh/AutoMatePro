@@ -2,8 +2,6 @@ from django.views.decorators.http import require_http_methods
 from .models import Service, Technician
 from django.http import JsonResponse
 import json
-
-
 from .encoders import (
     ServiceListEncoder,
     TechnicianListEncoder,
@@ -73,7 +71,6 @@ def detail_service(request, id):
         if "vip" in content:
             service.vip = content["vip"]
         service.save()
-
         return JsonResponse(service, encoder=ServiceListEncoder, safe=False)
     else:
         try:
